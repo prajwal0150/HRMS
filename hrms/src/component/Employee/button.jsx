@@ -1,0 +1,21 @@
+import React from 'react';
+
+ function Button({
+    children,
+    onClick,
+    type = "button",
+    icon = null,
+}) {
+    return (
+        <button
+            type={type}
+            onClick={onClick}
+            className="p-1.5 text-white bg-black rounded cursor-pointer text-md inline-flex items-center gap-1"
+        >
+            {icon && <span>{icon}</span>}
+            {children}
+        </button>
+    );
+}
+
+export default Button;
