@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 export async function loginuser(req,res) {
     try {
-        //1. Extract email and password
+        
         const { email, password } = req.body;
         //2. check validate email and password
         if (!email, !password) {

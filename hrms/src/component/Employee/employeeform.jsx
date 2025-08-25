@@ -37,9 +37,9 @@ export default function EmployeeForm({
       !department ||
       !designation ||
       !userType ||
-      !salary ||
-      !password ||
-      !confirmPassword
+      !salary 
+      // !password ||
+      // !confirmPassword
     ) {
       alert("Please fill out all fields.");
       return;
@@ -62,7 +62,7 @@ export default function EmployeeForm({
     try {
       if (editEmployee) {
         const response = await axios.put(
-          `http://localhost:5000/employees/${editEmployee.id}`,
+          `http://localhost:5000/employee/update/${editEmployee.id}`,
           employeeData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -73,7 +73,7 @@ export default function EmployeeForm({
         setEditEmployee(null);
       } else {
         const response = await axios.post(
-          "http://localhost:5000/employees",
+          "http://localhost:5000/employee/getAllEmployee",
           employeeData,
           {
             headers: {
@@ -81,7 +81,7 @@ export default function EmployeeForm({
             },
           }
         );
-        setEmployees((prev) => [...prev, response.data]);
+        setEmployees((prev) => [...prev, response.data.data]);
         setModelForm(false);
         if (response.status === 201) {
           alert("Employee added successfully!");

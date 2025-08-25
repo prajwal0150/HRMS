@@ -27,13 +27,13 @@ export default function EmployeeCard({ employees, setEditEmployee, setModelForm,
                 </div>
               </td>
               <td>{employee.department}</td>
-              <td>{employee.position}</td>
+              <td>{employee.designation}</td>
               <td>
                 <span className="px-2 py-1 text-xs rounded-full bg-green-100 text-green-700">
                   {employee.status}
                 </span>
               </td>
-              <td>{employee.date}</td>
+              <td>{employee.createdAt?.split("T")[0]}</td>
               <td>{employee.salary}</td>
               <td className="flex justify-center gap-3 text-gray-600">
                 <FaEye className="cursor-pointer hover:text-blue-500" />
@@ -45,7 +45,7 @@ export default function EmployeeCard({ employees, setEditEmployee, setModelForm,
                   className="cursor-pointer hover:text-green-500" 
                 />
                 <FaTrash 
-                  onClick={() => handleDelete(employee.id)} 
+                  onClick={() => handleDelete(employee._id)} 
                   className="cursor-pointer hover:text-red-500" 
                 />
               </td>
